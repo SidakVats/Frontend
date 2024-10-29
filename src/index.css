@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  font-family: "Wix Madefor Text", sans-serif;
+}
+
 
 @layer utilities {
     .max_padd_container {

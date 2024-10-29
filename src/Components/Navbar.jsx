@@ -239,7 +239,7 @@ export default function Navbar1() {
             to="/"
             className="text-2xl font-mono flex items-center md:gap-1"
           >
-            SIDAK VATS
+            F L I C K <span className="text-[#fbb134] ms-3">STUDIOS</span>
           </Link>
         </section>
 
