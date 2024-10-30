@@ -6,9 +6,9 @@ import Image3 from "../public/Capture3.png";
 import { FaUserAlt, FaEnvelope, FaPhone } from "react-icons/fa";
 
 const images = [
-  { src: Image1, alt: "Excellent", value: "Excellent", className: "mb-2 cursor-pointer" },
-  { src: Image2, alt: "Good", value: "Good", className: "cursor-pointer" },
-  { src: Image3, alt: "Average", value: "Average", className: "cursor-pointer" },
+  { src: Image1, alt: "Excellent", value: "Excellent" },
+  { src: Image2, alt: "Good", value: "Good" },
+  { src: Image3, alt: "Average", value: "Average" },
 ];
 
 const Review = () => {
@@ -26,13 +26,22 @@ const Review = () => {
         </div>
 
         <form action="https://formspree.io/f/movqeqpq" method="POST">
-          <div className="flex items-center justify-center mt-5 md:mt-10 gap-5 md:gap-20 lg:mt-5">
-            {images.map((image, index) => (
-              <div key={index} onClick={() => setSelectedRating(image.value)}>
-                <img src={image.src} alt={image.alt} className={image.className} />
-              </div>
-            ))}
-          </div>
+        <div className="flex items-center justify-center mt-5 md:mt-10 gap-5 md:gap-20 lg:mt-5">
+  {images.map((image, index) => (
+    <div key={index} className="flex flex-col items-center">
+      <div
+        onClick={() => setSelectedRating(image.value)}
+        className={`cursor-pointer w-24 ${
+          selectedRating === image.value ? "border-2 border-[#490d09] rounded-full" : ""
+        }`}
+      >
+        <img src={image.src} alt={image.alt} />
+      </div>
+      <p className="text-xl font-semibold text-[#490d09] mt-2">{image.value}</p>
+    </div>
+  ))}
+</div>
+
 
           <div className="w-full max-w-md space-y-6 mt-10 md:mt-14 lg:mt-10">
             <div className="flex items-center border-2 border-[#490d09] rounded-full py-2 px-4">
@@ -48,11 +57,7 @@ const Review = () => {
               />
             </div>
 
-            <input
-              type="hidden"
-              name="Ratings"
-              value={selectedRating}
-            />
+            <input type="hidden" name="Ratings" value={selectedRating} />
 
             <div className="flex items-center border-2 border-[#490d09] rounded-full py-2 px-4">
               <div className="bg-[#490d09] flex items-center justify-center p-2" style={{ borderRadius: "20px" }}>
