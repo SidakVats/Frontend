@@ -6,6 +6,20 @@
   font-family: "Wix Madefor Text", sans-serif;
 }
 
+.bg1 {
+  background-image: url('./public/bg.jpeg');
+  background-size: cover; /* Adjusts the image to cover the entire area */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  opacity: 0.1;
+  /* height: "100vh"; */
+}
+
+.bg2{
+  opacity: 1;
+}
+
+
 
 @layer utilities {
     .max_padd_container {
