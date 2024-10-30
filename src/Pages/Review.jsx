@@ -3,7 +3,9 @@ import Image1 from "../public/Capture.png";
 import Image2 from "../public/Capture2.png";
 import Image3 from "../public/Capture3.png";
 
-import { FaUserAlt, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaMobileScreen } from "react-icons/fa6";
+import { CgProfile } from "react-icons/cg";
+import { IoMdMailUnread } from "react-icons/io";
 
 const images = [
   { src: Image1, alt: "Excellent", value: "Excellent" },
@@ -22,7 +24,7 @@ const Review = () => {
       {/* Main Content */}
       <div className="relative z-10 rounded-2xl w-[87%] my-3 md:w-[75%] lg:w-[35%] flex items-center flex-col justify-center md:mt-20 lg:mt-0">
         <div className="uppercase text-xl md:text-2xl pt-3 text-[#86655e]">
-          FEEDBACK FORM
+          Rate Your Museum Experience
         </div>
 
         <form action="https://formspree.io/f/movqeqpq" method="POST">
@@ -46,7 +48,7 @@ const Review = () => {
           <div className="w-full max-w-md space-y-6 mt-10 md:mt-14 lg:mt-10">
             <div className="flex items-center border-2 border-[#490d09] rounded-full py-2 px-4">
               <div className="bg-[#490d09] flex items-center justify-center p-2" style={{ borderRadius: "20px" }}>
-                <FaUserAlt className="text-white text-xl" />
+                <CgProfile className="text-white text-xl" />
               </div>
               <input
                 type="text"
@@ -61,7 +63,7 @@ const Review = () => {
 
             <div className="flex items-center border-2 border-[#490d09] rounded-full py-2 px-4">
               <div className="bg-[#490d09] flex items-center justify-center p-2" style={{ borderRadius: "20px" }}>
-                <FaEnvelope className="text-white text-xl" />
+                <IoMdMailUnread className="text-white text-xl" />
               </div>
               <input
                 type="email"
@@ -74,7 +76,7 @@ const Review = () => {
 
             <div className="flex items-center border-2 border-[#490d09] rounded-full py-2 px-4">
               <div className="bg-[#490d09] flex items-center justify-center p-2" style={{ borderRadius: "20px" }}>
-                <FaPhone className="text-white text-xl" />
+                <FaMobileScreen className="text-white text-xl" />
               </div>
               <input
                 type="tel"
@@ -103,8 +105,8 @@ const Review = () => {
               <span className="absolute inset-0 bg-gray-100 rounded-lg opacity-0 hover:opacity-10 transition-opacity duration-100 ease-linear "></span>
             </button>
 
-            <div className="pb-20 md:pb-60 lg:pb-20"></div>
-            <div className="pb-20 md:pb-52 lg:pb-0"></div>
+            <div className="pb-20 md:pb-60 lg:pb-18"></div>
+            <div className="pb-2 md:pb-52 lg:pb-0"></div>
           </div>
         </form>
       </div>
