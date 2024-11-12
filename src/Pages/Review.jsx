@@ -27,7 +27,7 @@ const Review = () => {
           Rate Your Museum Experience
         </div>
 
-        <form action="https://formspree.io/f/xovqeyyy" method="POST">
+        <form action="https://formspree.io/f/xgveyynb" method="POST">
         <div className="flex items-center justify-center mt-5 md:mt-10 gap-5 md:gap-20 lg:mt-5">
   {images.map((image, index) => (
     <div key={index} className="flex flex-col items-center">
