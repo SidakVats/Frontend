@@ -71,11 +71,17 @@ const Review = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+  
+    // Check if rating/image is selected
+    if (!selectedRating) {
+      alert("Please select a rating before submitting the form.");
+      return; // Prevent form submission
+    }
+  
     // Simulate form submission logic
     setIsSubmitted(true);
     setIsOpen(true); // Open modal upon form submission
-
+  
     // Optionally reset the form after submission
     setSelectedRating("");
     setName("");
@@ -83,6 +89,7 @@ const Review = () => {
     setMobile("");
     setDescription("");
   };
+  
 
   return (
     <div className="relative flex items-center flex-col justify-center">
