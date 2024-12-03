@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image1 from "../public/Capture.png";
 import Image2 from "../public/Capture2.png";
 import Image3 from "../public/Capture3.png";
@@ -16,11 +16,23 @@ const images = [
 const Review = () => {
   const [selectedRating, setSelectedRating] = useState("");
 
+  const resetForm = () => {
+    setSelectedRating(""); // Clear the selected rating
+    // Reset other form fields if needed
+  };
+
+  // Check the URL to detect if it's the thank you page and reset form
+  useEffect(() => {
+    if (window.location.href.includes("thankyou")) {
+      resetForm(); // Reset the form fields if redirected to a thank you page
+    }
+  }, []);
+
   return (
     <div className="relative flex items-center flex-col justify-center">
       {/* Background Image */}
       <div className="absolute inset-0 bg1 opacity-20"></div>
-      
+
       {/* Main Content */}
       <div className="relative z-10 rounded-2xl w-[87%] my-3 md:w-[75%] lg:w-[35%] flex items-center flex-col justify-center md:mt-20 lg:mt-0">
         <div className="uppercase text-xl md:text-2xl pt-3 text-[#86655e]">
@@ -28,26 +40,32 @@ const Review = () => {
         </div>
 
         <form action="https://formspree.io/f/xgveyynb" method="POST">
-        <div className="flex items-center justify-center mt-5 md:mt-10 gap-5 md:gap-20 lg:mt-5">
-  {images.map((image, index) => (
-    <div key={index} className="flex flex-col items-center">
-      <div
-        onClick={() => setSelectedRating(image.value)}
-        className={`cursor-pointer w-24 ${
-          selectedRating === image.value ? "border-2 border-[#490d09] rounded-full" : ""
-        }`}
-      >
-        <img src={image.src} alt={image.alt} />
-      </div>
-      <p className="text-xl font-semibold text-[#490d09] mt-2">{image.value}</p>
-    </div>
-  ))}
-</div>
-
+          <div className="flex items-center justify-center mt-5 md:mt-10 gap-5 md:gap-20 lg:mt-5">
+            {images.map((image, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <div
+                  onClick={() => setSelectedRating(image.value)}
+                  className={`cursor-pointer w-24 ${
+                    selectedRating === image.value
+                      ? "border-2 border-[#490d09] rounded-full"
+                      : ""
+                  }`}
+                >
+                  <img src={image.src} alt={image.alt} />
+                </div>
+                <p className="text-xl font-semibold text-[#490d09] mt-2">
+                  {image.value}
+                </p>
+              </div>
+            ))}
+          </div>
 
           <div className="w-full max-w-md space-y-6 mt-10 md:mt-14 lg:mt-10">
             <div className="flex items-center border-2 border-[#490d09] rounded-full py-2 px-4">
-              <div className="bg-[#490d09] flex items-center justify-center p-2" style={{ borderRadius: "20px" }}>
+              <div
+                className="bg-[#490d09] flex items-center justify-center p-2"
+                style={{ borderRadius: "20px" }}
+              >
                 <CgProfile className="text-white text-xl" />
               </div>
               <input
@@ -62,7 +80,10 @@ const Review = () => {
             <input type="hidden" name="Ratings" value={selectedRating} />
 
             <div className="flex items-center border-2 border-[#490d09] rounded-full py-2 px-4">
-              <div className="bg-[#490d09] flex items-center justify-center p-2" style={{ borderRadius: "20px" }}>
+              <div
+                className="bg-[#490d09] flex items-center justify-center p-2"
+                style={{ borderRadius: "20px" }}
+              >
                 <IoMdMailUnread className="text-white text-xl" />
               </div>
               <input
@@ -75,7 +96,10 @@ const Review = () => {
             </div>
 
             <div className="flex items-center border-2 border-[#490d09] rounded-full py-2 px-4">
-              <div className="bg-[#490d09] flex items-center justify-center p-2" style={{ borderRadius: "20px" }}>
+              <div
+                className="bg-[#490d09] flex items-center justify-center p-2"
+                style={{ borderRadius: "20px" }}
+              >
                 <FaMobileScreen className="text-white text-xl" />
               </div>
               <input
